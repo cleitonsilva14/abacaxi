@@ -34,19 +34,13 @@ public class AbacaxiController {
 	@Autowired
 	AbacaxiRepository abacaxiRepository;
 
-//	@GetMapping("/abacaxi")
-//	public String home() {
-//		return "Bem vindo a api do Abacaxi!";
-//	}
-//	
 
-	@Operation(summary = "Buscar todos os abacaxis", description = "Obeter todos os abacaxis nesse endpoint.", tags = {
-			"", "" })
+	@Operation(summary = "Buscar todos os abacaxis", description = "Obeter todos os abacaxis nesse endpoint.", tags = {"", "" })
 	@ApiResponses({
-			@ApiResponse(responseCode = "200", content = {
-					@Content(schema = @Schema(implementation = Abacaxi.class), mediaType = "application/json") }),
+			@ApiResponse(responseCode = "200", 
+					content = { @Content(schema = @Schema(implementation = Abacaxi.class), mediaType = "application/json") }),
 			@ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
-//		      @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
+			// @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) })
 	})
 	@GetMapping("/abacaxi")
 	public ResponseEntity<List<Abacaxi>> getAllAbacaxis() {
