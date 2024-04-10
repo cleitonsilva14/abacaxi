@@ -3,6 +3,8 @@ package br.com.abacaxi.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.lang.model.util.Elements.Origin;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -80,21 +82,18 @@ public class AbacaxiController {
 		return ResponseEntity.status(HttpStatus.OK).body(abacaxiOptional.get());
 	}
 	
+
+	@Operation(summary = "Buscar todos os abacaxis passando um país de origem", description = "Todos abacaxis por origem")
+	@GetMapping("/abacaxi/origin/{contry}")
+					//	public List<Abacaxi> getAbacaxiByOrigin(@PathVariable String contry) {
+					//		return abacaxiRepository.findAbacaxiByOrigin(contry);
+					//	}
+	
+	public ResponseEntity<List<Abacaxi>>  getAbacaxiByOrigin(@PathVariable String contry){
+		return ResponseEntity.status(HttpStatus.OK).body(abacaxiService.getByOrigin(contry));
+	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-//
-//	@Operation(summary = "Buscar todos os abacaxis passando um país de origem", description = "Todos abacaxis por origem")
-//	@GetMapping("/abacaxi/origin/{contry}")
-//	public List<Abacaxi> getAbacaxiByOrigin(@PathVariable String contry) {
-//		return abacaxiRepository.findAbacaxiByOrigin(contry);
-//	}
 //	
 //	@Operation(summary = "Buscar todos os abacaxis que não é de origem BR", description = "Todos abacaxis por que não são do Brasil")
 //	@GetMapping("/abacaxi/origin/importados")

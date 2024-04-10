@@ -23,6 +23,9 @@ public class AbacaxiService {
 			return abacaxiRepository.findById(id);
 	}
 	
+	public List<Abacaxi> getByOrigin(String origin){
+		return abacaxiRepository.findAbacaxiByOrigin(origin);
+	}
 	
 	
 	
