@@ -36,9 +36,9 @@ public class SwaggerConfig {
 		Contact contact = new Contact();
 		contact.setEmail("abacaxi@gmail.com");
 		contact.setName("Abacaxi Dev");
-		contact.setUrl("https://www.gruponewsystems.com.br");
+		contact.setUrl("https://www.abacaxi.com.br");
 	
-		License mitLicense = new License().name("MIT License").url("https://www.gruponewsystems.com.br");
+		License mitLicense = new License().name("MIT License").url("https://opensource.org/license/mit/");
 		
 		Info info = new Info()
 				.title("Api Abacaxi")
